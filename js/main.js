@@ -25,7 +25,7 @@ for(var i=0;i<2;i++){
 	log[i].appendChild(table);
 }
 var len=3;
-var digits=Array.apply(null,new Array(len)).map(function(a,i){return i});
+var digits=Array.apply(null,new Array(10)).map(function(a,i){return i});
 var num=["",""];
 var logLine=[1,1];
 for(var i=0;i<len;i++){
