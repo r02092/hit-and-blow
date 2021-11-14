@@ -32,7 +32,7 @@ div.log tbody{
 	display: block;
 }
 div.log tbody{
-	height: 7.5em;
+	height: calc(7.5em + 4px);
 	overflow-y: scroll;
 }
 div.log tr,
@@ -51,6 +51,7 @@ div.log td{
 	border-top: 1px dashed;
 	display: inline-block;
 	width: 50%;
+	height: 1.5em;
 	line-height:1.5;
 }
 div.log tr:first-child>td{
