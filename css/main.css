@@ -1,0 +1,66 @@
+body{
+	font-family: sans-serif;
+}
+div.side{
+	display: flex;
+}
+div.left{
+	flex: 1;
+}
+div.right{
+	width: 3em;
+}
+div.status{
+	align-items: flex-end;
+}
+div.status>div{
+	width: calc(100% / 3);
+}
+#memoBtn>tr>td,div.center{
+	text-align: center;
+}
+#memoBtn,input{
+	width: 100%;
+}
+div.log table{
+	border-collapse: collapse;
+	border: solid 2px;
+	width: 100%;
+}
+div.log thead,
+div.log tbody{
+	display: block;
+}
+div.log tbody{
+	height: 7.5em;
+	overflow-y: scroll;
+}
+div.log tr,
+div.log th{
+	display: block;
+	width: 100%;
+}
+div.log th,
+div.log td{
+	padding: 0;
+}
+div.log th{
+	border-bottom: 1px solid;
+}
+div.log td{
+	border-top: 1px dashed;
+	display: inline-block;
+	width: 50%;
+	line-height:1.5;
+}
+div.log tr:first-child>td{
+	border: none;
+}
+#gauge{
+	background: green;
+	height: 90%;
+}
+#gaugeInner{
+	background: gray;
+	height: 20%;
+}
