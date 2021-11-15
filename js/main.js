@@ -25,15 +25,20 @@ for(var i=0;i<2;i++){
 	log[i].appendChild(table);
 }
 var len=3;
-var digits=Array.apply(null,new Array(10)).map(function(a,i){return i});
 var num=["",""];
 var logLine=[1,1];
-for(var i=0;i<len;i++){
-	num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
+var duplicate=1;
+if(duplicate){
+	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
+}else{
+	var digits=Array.apply(null,new Array(10)).map(function(a,i){return i});
+	for(var i=0;i<len;i++){
+		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
+	}
 }
 ansElem=document.getElementById("ans");
 ansElem.addEventListener("input",function(){
-	if(!/(.).*\1/.test(ansElem.value)&&new RegExp("^\\d{"+len+"}$").test(ansElem.value)){
+	if((!/(.).*\1/.test(ansElem.value)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(ansElem.value)){
 		ansProcess(ansElem.value,0);
 		ansElem.value="";
 	}
@@ -46,6 +51,9 @@ function appendLine(elem){ //ログの表に行を追加する関数
 	}
 	elem.appendChild(ltr);
 }
+function txtCount(txt,searchTxt){ //文字列内の特定の文字列の登場回数を取得する関数
+	return (txt.match(new RegExp(searchTxt,"g"))||[]).length;
+}
 function ansProcess(ans,player){ //解答を処理する関数
 	ltbody=document.querySelector("div.log:nth-child("+(1+2*player)+") tbody");
 	if(logLine[player]>ltbody.childElementCount)appendLine(ltbody);
@@ -53,10 +61,14 @@ function ansProcess(ans,player){ //解答を処理する関数
 	var hit=0;
 	var blow=0;
 	for(var li=0;li<len;li++){
-		if(num[player][li]==ans[li])hit++
-		if(num[player].indexOf(ans[li])>-1)blow++
+		if(num[player][li]==ans[li]){
+			hit++;
+		}else if(num[player].indexOf(ans[li])>-1){
+			blow++;
+			var delta=txtCount(num[player],ans[li])-txtCount(ans,ans[li]);
+			if(delta<0)blow+=delta;
+		}
 	}
-	blow-=hit
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(2)").textContent=hit+"h"+blow+"b";
 	ltbody.scrollTop=ltbody.scrollHeight;
 	logLine[player]++;
