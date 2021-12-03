@@ -27,7 +27,7 @@ for(var i=0;i<2;i++){
 var len=3;
 var num=["",""];
 var logLine=[1,1];
-var duplicate=1;
+var duplicate=0;
 if(duplicate){
 	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 }else{
@@ -43,6 +43,8 @@ ansElem.addEventListener("input",function(){
 		ansElem.value="";
 	}
 })
+var sTime=Date.now();
+var interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
 function appendLine(elem){ //ログの表に行を追加する関数
 	var ltr=document.createElement("tr");
 	for(var li=0;li<2;li++){
@@ -71,5 +73,13 @@ function ansProcess(ans,player){ //解答を処理する関数
 	}
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(2)").textContent=hit+"h"+blow+"b";
 	ltbody.scrollTop=ltbody.scrollHeight;
-	logLine[player]++;
+	if(hit==len&&blow==0){
+		endGame();
+	}else{
+		logLine[player]++;
+	}
+}
+function endGame(){ //ゲーム終了後に実行される関数
+	clearInterval(interval);
+	document.getElementById("ans").setAttribute("disabled","");
 }
