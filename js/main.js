@@ -28,6 +28,8 @@ var len=3;
 var num=["",""];
 var logLine=[1,1];
 var duplicate=0;
+var turn=1;
+var firstPlayer=1;
 if(duplicate){
 	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 }else{
@@ -76,6 +78,10 @@ function ansProcess(ans,player){ //解答を処理する関数
 	if(hit==len&&blow==0){
 		endGame();
 	}else{
+		if(player!=firstPlayer){
+			turn++;
+			document.getElementById("turn").textContent=turn;
+		}
 		logLine[player]++;
 	}
 }
