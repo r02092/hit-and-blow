@@ -24,10 +24,11 @@ for(var i=0;i<2;i++){
 	table.appendChild(tbody);
 	log[i].appendChild(table);
 }
+var com=true;
 var len=3;
+var duplicate=0;
 var num=["",""];
 var logLine=[1,1];
-var duplicate=0;
 var turn=1;
 var firstPlayer=1;
 if(duplicate){
@@ -38,15 +39,20 @@ if(duplicate){
 		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
 	}
 }
+do num[1]=prompt("数字:");while(!isUsableNum(num[1]));
 ansElem=document.getElementById("ans");
 ansElem.addEventListener("input",function(){
-	if((!/(.).*\1/.test(ansElem.value)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(ansElem.value)){
+	if(isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
+		if(com)ansProcess("012",1);
 		ansElem.value="";
 	}
-})
+});
 var sTime=Date.now();
 var interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
+function isUsableNum(num){ //使用可能な数字であるかどうか判別する関数
+	return (!/(.).*\1/.test(num)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(num);
+}
 function appendLine(elem){ //ログの表に行を追加する関数
 	var ltr=document.createElement("tr");
 	for(var li=0;li<2;li++){
