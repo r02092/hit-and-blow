@@ -1,9 +1,18 @@
 var playerName=["私","あなた"];
 var memoBtn=document.getElementById("memoBtn");
+var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
 	var tr=document.createElement("tr");
 	for(var j=0;j<5;j++){
 		var td=document.createElement("td");
+		td.addEventListener("click",(e)=>{
+			if(memoBtnData[e.target.textContent]<2){
+				memoBtnData[e.target.textContent]++;
+			}else{
+				memoBtnData[e.target.textContent]=0;
+			}
+			e.target.style.background=["white","red","green"][memoBtnData[e.target.textContent]];
+		});
 		td.textContent=5*i+j;
 		tr.appendChild(td);
 	}
@@ -44,7 +53,7 @@ if(duplicate){
 }
 do num[1]=prompt("数字:");while(!isUsableNum(num[1]));
 ansElem=document.getElementById("ans");
-ansElem.addEventListener("input",function(){
+ansElem.addEventListener("input",()=>{
 	if(isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
 		if(com){
@@ -73,7 +82,7 @@ ansElem.addEventListener("input",function(){
 var sTime=Date.now();
 var interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
 function genDigits(llen){ //0から数字を並べた配列を生成する関数
-	return Array.apply(null,new Array(llen)).map(function(a,i){return i});
+	return Array.apply(null,new Array(llen)).map((a,i)=>{return i});
 }
 function isUsableNum(num){ //使用可能な数字であるかどうか判別する関数
 	return (!/(.).*\1/.test(num)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(num);
