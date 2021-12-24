@@ -5,7 +5,7 @@
 		<link href="css/main.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="side">
+		<div id="info" class="side">
 			<div class="left">
 				<table id="memoBtn"></table>
 				<div class="side status">
@@ -19,13 +19,14 @@
 				</div>
 			</div>
 			<div class="right">
-				<button>メモ</button>
+				<button id="memoClearBtn">メモ</button>
 				<div id="gauge">
 					<div id="gaugeInner"></div>
 				</div>
 			</div>
 		</div>
 		<input type="number" id="ans" placeholder="かいとう">
+		<canvas id="memo"></canvas>
 		<script src="js/main.js"></script>
 	</body>
 </html>

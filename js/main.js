@@ -81,6 +81,25 @@ ansElem.addEventListener("input",()=>{
 });
 var sTime=Date.now();
 var interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
+var infoElem=document.getElementById("info");
+var memo=document.getElementById("memo");
+var memoClearBtn=document.getElementById("memoClearBtn");
+var memoContext=memo.getContext("2d");
+var memoFlg=true;
+var memoLast={x:null,y:null};
+memoResize();
+window.addEventListener("resize",memoResize);
+memoClearBtn.addEventListener("click",()=>memoContext.clearRect(0,0,memo.width,memo.height));
+memo.addEventListener("mousedown",memoDragStart);
+memo.addEventListener("mouseup",memoDragEnd);
+memo.addEventListener("mouseout",memoDragEnd);
+memo.addEventListener("mousemove",(e)=>memoDraw(e.layerX,e.layerY));
+memo.addEventListener("touchstart",memoDragStart);
+memo.addEventListener("touchend",memoDragEnd);
+memo.addEventListener("touchcancel",memoDragEnd);
+memo.addEventListener("touchmove",(e)=>{
+	for(var li of e.touches)memoDraw(li.clientX-memo.getBoundingClientRect().left,li.clientY-memo.getBoundingClientRect().top);
+});
 function genDigits(llen){ //0から数字を並べた配列を生成する関数
 	return Array.apply(null,new Array(llen)).map((a,i)=>{return i});
 }
@@ -144,4 +163,30 @@ function genOpt(digitsNum,llen,lduplicate){ //解の候補となる番号の配�
 function endGame(){ //ゲーム終了後に実行される関数
 	clearInterval(interval);
 	document.getElementById("ans").setAttribute("disabled","");
+}
+function memoResize(){ //メモの大きさを調整する関数
+	memo.width=infoElem.clientWidth;
+	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-32;
+}
+function memoDraw(x,y){ //メモの描画を行う関数
+	if(memoFlg)return;
+	if(memoLast.x===null||memoLast.y===null){
+		memoContext.moveTo(x,y);
+	}else{
+		memoContext.moveTo(memoLast.x,memoLast.y);
+	}
+	memoContext.lineTo(x,y);
+	memoContext.stroke();
+	memoLast.x=x;
+	memoLast.y=y;
+}
+function memoDragStart(){ //メモ上でドラッグ開始時に実行される関数
+	memoContext.beginPath();
+	memoFlg=false;
+}
+function memoDragEnd(){ //メモ上でドラッグ終了時に実行される関数
+	memoContext.closePath();
+	memoFlg=true;
+	memoLast.x=null;
+	memoLast.y=null;
 }
