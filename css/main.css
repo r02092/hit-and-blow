@@ -1,5 +1,9 @@
+@font-face {
+	font-family: 'notosansjp';
+	src: url('notosans.otf') format('opentype');
+  }
 body{
-	font-family: sans-serif;
+	font-family: 'notosansjp', sans-serif;
 }
 div.side{
 	display: flex;
