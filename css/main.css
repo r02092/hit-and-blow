@@ -69,3 +69,42 @@ div.log tr:first-child>td{
 	background: gray;
 	height: 20%;
 }
+#ans{
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-bottom: 8px;
+    box-sizing: border-box; 
+}
+.underline{
+	position: relative; 
+    border-top: 3px solid #c2c2c2; 
+}
+.underline::before,
+.underline::after{
+    position: absolute; 
+    bottom: 0px; 
+    width: 0px; 
+    height: 3px; 
+    content: '';
+    background-color: #4169e1; 
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+.underline::before{
+	left: 50%; 
+}
+.underline::after{
+	right: 50%;
+}
+#ans:focus + .underline::before,
+#ans:focus + .underline::after{
+    width: 50%;
+}
+#memoBtn{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
