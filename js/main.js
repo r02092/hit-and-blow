@@ -62,9 +62,14 @@ $("#start").click(function(ev){
 		num[1] = currentMyNum;
 		$(".title").fadeOut(500);
 	}else{
+		if(currentMyNum == ""){
+			alert("数字を入れてください")
+		}else{
 		alert("その数字は利用できません");
+		}
+		$("#myNum").focus();
+		$("#myNum").select();
 	}
-	ev.preventDefault();
 });
 ansElem.addEventListener("input",()=>{
 	if(isUsableNum(ansElem.value)){
