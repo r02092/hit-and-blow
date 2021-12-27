@@ -1,9 +1,6 @@
-@font-face {
-	font-family: 'notosansjp';
-	src: url('notosans.otf') format('opentype');
-  }
+
 body{
-	font-family: 'notosansjp', sans-serif;
+	font-family: "Sawarabi Gothic";
 }
 div.side{
 	display: flex;
