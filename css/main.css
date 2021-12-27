@@ -58,6 +58,9 @@ div.log td{
 	height: 1.5em;
 	line-height:1.5;
 }
+div.log tr:nth-child(odd) > td{
+	background-color: #dcdcdc;
+}
 div.log tr:first-child>td{
 	border: none;
 }
