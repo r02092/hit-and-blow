@@ -51,8 +51,26 @@ if(duplicate){
 		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
 	}
 }
-do num[1]=prompt("数字:");while(!isUsableNum(num[1]));
+//do num[1]=prompt("自分の答えの数字:");while(!isUsableNum(num[1]));
 ansElem=document.getElementById("ans");
+var interval;
+$("#start").click(function(ev){
+	var currentMyNum = $("#myNum").val();
+	if(isUsableNum(currentMyNum)){
+		var sTime=Date.now();
+		interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
+		num[1] = currentMyNum;
+		$(".title").fadeOut(500);
+	}else{
+		if(currentMyNum == ""){
+			alert("数字を入れてください")
+		}else{
+		alert("その数字は利用できません");
+		}
+		$("#myNum").focus();
+		$("#myNum").select();
+	}
+});
 ansElem.addEventListener("input",()=>{
 	if(isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
