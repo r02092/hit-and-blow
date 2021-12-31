@@ -1,4 +1,4 @@
-var playerName=["私","あなた"];
+var playerName=["あなた","コンピュータ"];
 var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
@@ -24,7 +24,7 @@ for(var i=0;i<2;i++){
 	var thead=document.createElement("thead");
 	var tr=document.createElement("tr");
 	var th=document.createElement("th");
-	th.textContent=playerName[i];
+	th.textContent=playerName[i] + "の攻撃";
 	tr.appendChild(th);
 	thead.appendChild(tr);
 	table.appendChild(thead);
