@@ -65,7 +65,7 @@ $("#start").click(function(ev){
 		if(currentMyNum == ""){
 			alert("数字を入れてください")
 		}else{
-		alert("その数字は利用できません");
+			alert("その数字は利用できません");
 		}
 		$("#myNum").focus();
 		$("#myNum").select();
