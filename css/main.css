@@ -1,4 +1,3 @@
-
 body{
 	font-family: "Sawarabi Gothic";
 }
@@ -55,8 +54,8 @@ div.log td{
 	height: 1.5em;
 	line-height:1.5;
 }
-div.log tr:nth-child(odd) > td{
-	background-color: #dcdcdc;
+div.log tr:nth-child(odd)>td{
+	background-color: gainsboro;
 }
 div.log tr:first-child>td{
 	border: none;
@@ -73,27 +72,27 @@ div.log tr:first-child>td{
 	border: 1px solid black;
 }
 #ans{
-    font-size: 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    padding-bottom: 8px;
-    box-sizing: border-box; 
+	font-size: 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	padding-bottom: 8px;
+	box-sizing: border-box; 
 }
 .underline{
 	position: relative; 
-    border-top: 3px solid #c2c2c2; 
+	border-top: 3px solid #c2c2c2;
 }
 .underline::before,
 .underline::after{
-    position: absolute; 
-    bottom: 0px; 
-    width: 0px; 
-    height: 3px; 
-    content: '';
-    background-color: #4169e1; 
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+	position: absolute; 
+	bottom: 0px; 
+	width: 0px; 
+	height: 3px; 
+	content: "";
+	background-color: royalblue;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
 }
 .underline::before{
 	left: 50%; 
@@ -103,7 +102,7 @@ div.log tr:first-child>td{
 }
 #ans:focus + .underline::before,
 #ans:focus + .underline::after{
-    width: 50%;
+	width: 50%;
 }
 #memoBtn{
 	-webkit-user-select: none;
@@ -133,7 +132,7 @@ div.log tr:first-child>td{
 	padding: 20px 50px;
 	cursor: pointer;
 	transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
 }
 .button:hover{
 	background: deepskyblue;
