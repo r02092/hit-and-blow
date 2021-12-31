@@ -42,10 +42,12 @@ var turn=1;
 var firstPlayer=1;
 var hit=0;
 var blow=0;
+document.getElementById("len").textContent=len;
 if(com)var targetNums=genOpt(10,len,duplicate);
 if(duplicate){
 	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 }else{
+	document.getElementById("duplicate").textContent="重複無し";
 	var digits=genDigits(10);
 	for(var i=0;i<len;i++){
 		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
