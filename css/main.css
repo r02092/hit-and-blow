@@ -1,5 +1,5 @@
 body{
-	font-family: "Sawarabi Gothic";
+	font-family: "Sawarabi Gothic", sans-serif;
 }
 div.side{
 	display: flex;
