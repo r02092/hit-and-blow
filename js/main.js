@@ -99,8 +99,6 @@ ansElem.addEventListener("input",()=>{
 		ansElem.value="";
 	}
 });
-var sTime=Date.now();
-var interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
 var infoElem=document.getElementById("info");
 var memo=document.getElementById("memo");
 var memoClearBtn=document.getElementById("memoClearBtn");
