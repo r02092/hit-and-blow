@@ -1,4 +1,4 @@
-var playerName=["あなた","コンピュータ"];
+﻿var playerName=["あなた","コンピュータ"];
 var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
@@ -141,13 +141,19 @@ function ansProcess(ans,player){ //解答を処理する関数
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(1)").textContent=ans;
 	hit=0;
 	blow=0;
-	for(var li=0;li<len;li++){
-		if(num[player][li]==ans[li]){
+	var localans = ans;
+	var localnum = num;
+	for(var li=0;li<localnum[player].length;li++){
+		if(localnum[player][li]==localans[li]){
 			hit++;
-		}else if(num[player].indexOf(ans[li])>-1){
+			localnum[player].slice(li,1);
+			localans.slice(li,1);
+		}else if(localnum[player].indexOf(localans[li])>-1){
 			blow++;
-			var delta=txtCount(num[player],ans[li])-txtCount(ans,ans[li]);
-			if(delta<0)blow+=delta;
+			//num[]隠された答え、ans(入力された答え)
+			//var delta=txtCount(num[player],ans[li])-txtCount(ans,ans[li]);
+			//alert(txtCount(num[player],ans[li]) + "、" + txtCount(ans,ans[li]))
+			//if(delta<0)blow+=delta;
 		}
 	}
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(2)").textContent=hit+"h"+blow+"b";
