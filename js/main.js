@@ -35,7 +35,7 @@ for(var i=0;i<2;i++){
 }
 var com=true;
 var len=3;
-var duplicate=0;
+var duplicate=1;
 var num=["",""];
 var logLine=[1,1];
 var turn=1;
@@ -45,7 +45,7 @@ var blow=0;
 document.getElementById("len").textContent=len;
 if(com)var targetNums=genOpt(10,len,duplicate);
 if(duplicate){
-	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
+	num[0]="646";//(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 }else{
 	document.getElementById("duplicate").textContent="重複無し";
 	var digits=genDigits(10);
@@ -53,6 +53,9 @@ if(duplicate){
 		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
 	}
 }
+//646
+//663
+//
 //do num[1]=prompt("自分の答えの数字:");while(!isUsableNum(num[1]));
 ansElem=document.getElementById("ans");
 var interval;
@@ -77,7 +80,7 @@ ansElem.addEventListener("input",()=>{
 	if(isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
 		if(com){
-			comAns=targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
+			comAns=[6,6,6];//targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
 			ansProcess(comAns.join(""),1);
 			var newNums=[];
 			for(i of targetNums){
@@ -141,13 +144,14 @@ function ansProcess(ans,player){ //解答を処理する関数
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(1)").textContent=ans;
 	hit=0;
 	blow=0;
+	var localnum = Array.from(num);
 	var localans = ans;
-	var localnum = num;
 	for(var li=0;li<localnum[player].length;li++){
-		if(localnum[player][li]==localans[li]){
+		if(localnum[player][li]==ans[li]){
 			hit++;
-			localnum[player].slice(li,1);
-			localans.slice(li,1);
+			localnum[player] = 	removeCharacter(li,localnum[player]);
+			localans = removeCharacter(li,localans);
+			alert(localnum[player] + "\n" + localans);
 		}else if(localnum[player].indexOf(localans[li])>-1){
 			blow++;
 			//num[]隠された答え、ans(入力された答え)
@@ -214,3 +218,8 @@ function memoDragEnd(){ //メモ上でドラッグ終了時に実行される関
 	memoLast.x=null;
 	memoLast.y=null;
 }
+function removeCharacter(position,str){
+	return str.slice(0, position) + str.slice(position + 1);
+}
+
+
