@@ -1,4 +1,4 @@
-﻿var playerName=["あなた","コンピュータ"];
+var playerName=["あなた","コンピュータ"];
 var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
