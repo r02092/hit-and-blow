@@ -1,4 +1,4 @@
-var playerName=["あなた","コンピュータ"];
+﻿var playerName=["あなた","コンピュータ"];
 var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
@@ -12,6 +12,7 @@ for(var i=0;i<2;i++){
 				memoBtnData[e.target.textContent]=0;
 			}
 			e.target.style.background=["white","red","green"][memoBtnData[e.target.textContent]];
+			e.target.style.color=["black","white","white"][memoBtnData[e.target.textContent]];
 		});
 		td.textContent=5*i+j;
 		tr.appendChild(td);
@@ -57,6 +58,7 @@ if(duplicate){
 //663
 //
 //do num[1]=prompt("自分の答えの数字:");while(!isUsableNum(num[1]));
+
 ansElem=document.getElementById("ans");
 var interval;
 $("#start").click(function(ev){
@@ -149,11 +151,12 @@ function ansProcess(ans,player){ //解答を処理する関数
 	for(var li=0;li<localnum[player].length;li++){
 		if(localnum[player][li]==ans[li]){
 			hit++;
-			localnum[player] = 	removeCharacter(li,localnum[player]);
+			localnum[player] = removeCharacter(li,localnum[player]);
 			localans = removeCharacter(li,localans);
 			alert(localnum[player] + "\n" + localans);
 		}else if(localnum[player].indexOf(localans[li])>-1){
 			blow++;
+			
 			//num[]隠された答え、ans(入力された答え)
 			//var delta=txtCount(num[player],ans[li])-txtCount(ans,ans[li]);
 			//alert(txtCount(num[player],ans[li]) + "、" + txtCount(ans,ans[li]))
@@ -194,7 +197,7 @@ function endGame(){ //ゲーム終了後に実行される関数
 }
 function memoResize(){ //メモの大きさを調整する関数
 	memo.width=infoElem.clientWidth;
-	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-32;
+	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-64;
 }
 function memoDraw(x,y){ //メモの描画を行う関数
 	if(memoFlg)return;
