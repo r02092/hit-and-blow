@@ -148,12 +148,16 @@ function ansProcess(ans,player){ //解答を処理する関数
 	blow=0;
 	var localnum = Array.from(num);
 	var localans = ans;
-	for(var li=0;li<localnum[player].length;li++){
-		if(localnum[player][li]==localans[li]){
+	//hitのときに数字を削除するとliの番号とズレが生じる
+	//そのため数字を削除した数の分だけliから引く
+	var movedQuantity = 0;
+	for(var li=0;li<len;li++){
+		if(localnum[player][li-movedQuantity]==localans[li-movedQuantity]){
 			hit++;
-			localnum[player] = removeCharacter(li,localnum[player]);
-			localans = removeCharacter(li,localans);
-		}else if(localnum[player].indexOf(localans[li])>-1){
+			localnum[player] = removeCharacter(li-movedQuantity,localnum[player]);
+			localans = removeCharacter(li-movedQuantity,localans);
+			movedQuantity++;
+		}else if(localnum[player].indexOf(localans[li-movedQuantity])>-1){
 			blow++;
 			
 			//num[]隠された答え、ans(入力された答え)
