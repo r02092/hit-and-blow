@@ -36,7 +36,7 @@ for(var i=0;i<2;i++){
 }
 var com=true;
 var len=3;
-var duplicate=1;
+var duplicate=0;
 var num=["",""];
 var logLine=[1,1];
 var turn=1;
