@@ -149,11 +149,10 @@ function ansProcess(ans,player){ //解答を処理する関数
 	var localnum = Array.from(num);
 	var localans = ans;
 	for(var li=0;li<localnum[player].length;li++){
-		if(localnum[player][li]==ans[li]){
+		if(localnum[player][li]==localans[li]){
 			hit++;
 			localnum[player] = removeCharacter(li,localnum[player]);
 			localans = removeCharacter(li,localans);
-			alert(localnum[player] + "\n" + localans);
 		}else if(localnum[player].indexOf(localans[li])>-1){
 			blow++;
 			
