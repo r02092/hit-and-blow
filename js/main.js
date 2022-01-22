@@ -12,6 +12,7 @@ for(var i=0;i<2;i++){
 				memoBtnData[e.target.textContent]=0;
 			}
 			e.target.style.background=["white","red","green"][memoBtnData[e.target.textContent]];
+			e.target.style.color=["black","white","white"][memoBtnData[e.target.textContent]];
 		});
 		td.textContent=5*i+j;
 		tr.appendChild(td);
@@ -53,7 +54,11 @@ if(duplicate){
 		num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
 	}
 }
+//646
+//663
+//
 //do num[1]=prompt("自分の答えの数字:");while(!isUsableNum(num[1]));
+
 ansElem=document.getElementById("ans");
 var interval;
 $("#start").click(function(ev){
@@ -141,15 +146,20 @@ function ansProcess(ans,player){ //解答を処理する関数
 	ltbody.querySelector("tr:nth-child("+logLine[player]+")>td:nth-child(1)").textContent=ans;
 	hit=0;
 	blow=0;
+	var localnum = Array.from(num);
 	var localans = ans;
-	var localnum = num;
-	for(var li=0;li<localnum[player].length;li++){
-		if(localnum[player][li]==localans[li]){
+	//hitのときに数字を削除するとliの番号とズレが生じる
+	//そのため数字を削除した数の分だけliから引く
+	var movedQuantity = 0;
+	for(var li=0;li<len;li++){
+		if(localnum[player][li-movedQuantity]==localans[li-movedQuantity]){
 			hit++;
-			localnum[player].slice(li,1);
-			localans.slice(li,1);
-		}else if(localnum[player].indexOf(localans[li])>-1){
+			localnum[player] = removeCharacter(li-movedQuantity,localnum[player]);
+			localans = removeCharacter(li-movedQuantity,localans);
+			movedQuantity++;
+		}else if(localnum[player].indexOf(localans[li-movedQuantity])>-1){
 			blow++;
+			
 			//num[]隠された答え、ans(入力された答え)
 			//var delta=txtCount(num[player],ans[li])-txtCount(ans,ans[li]);
 			//alert(txtCount(num[player],ans[li]) + "、" + txtCount(ans,ans[li]))
@@ -190,7 +200,7 @@ function endGame(){ //ゲーム終了後に実行される関数
 }
 function memoResize(){ //メモの大きさを調整する関数
 	memo.width=infoElem.clientWidth;
-	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-32;
+	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-64;
 }
 function memoDraw(x,y){ //メモの描画を行う関数
 	if(memoFlg)return;
@@ -214,3 +224,8 @@ function memoDragEnd(){ //メモ上でドラッグ終了時に実行される関
 	memoLast.x=null;
 	memoLast.y=null;
 }
+function removeCharacter(position,str){
+	return str.slice(0, position) + str.slice(position + 1);
+}
+
+
