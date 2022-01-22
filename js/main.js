@@ -46,7 +46,7 @@ var blow=0;
 document.getElementById("len").textContent=len;
 if(com)var targetNums=genOpt(10,len,duplicate);
 if(duplicate){
-	num[0]="646";//(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
+	num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 }else{
 	document.getElementById("duplicate").textContent="重複無し";
 	var digits=genDigits(10);
@@ -82,7 +82,7 @@ ansElem.addEventListener("input",()=>{
 	if(isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
 		if(com){
-			comAns=[6,6,6];//targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
+			comAns=targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
 			ansProcess(comAns.join(""),1);
 			var newNums=[];
 			for(i of targetNums){
