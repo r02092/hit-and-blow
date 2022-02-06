@@ -41,9 +41,7 @@ $("#start").click(function(ev){
 				num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
 			}else{
 				var digits=genDigits(10);
-				for(var i=0;i<len;i++){
-					num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
-				}
+				for(var li=0;li<len;li++)num[0]+=digits.splice(Math.floor(Math.random()*digits.length),1);
 			}
 			//646
 			//663
@@ -145,18 +143,18 @@ ansElem.addEventListener("input",async ()=>{
 			comAns=targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
 			ansProcess(comAns.join(""),1);
 			var newNums=[];
-			for(i of targetNums){
+			for(li of targetNums){
 				var hits=[];
-				for(var j=0;j<len;j++){
-					if(comAns[j]==i[j]){
-						hits.push(j);
+				for(var lj=0;lj<len;lj++){
+					if(comAns[lj]==li[lj]){
+						hits.push(lj);
 					}
 				}
 				if(hits.length==hit){
 					var comBlow=0;
-					var inversionHits=genDigits(len).filter(i=>!hits.includes(i));
-					for(j of inversionHits)if(comAns.filter((_e,i)=>(inversionHits.includes(i))).includes(i[j]))comBlow++;
-					if(blow==comBlow)newNums.push(i);
+					var inversionHits=genDigits(len).filter(li=>!hits.includes(li));
+					for(lj of inversionHits)if(comAns.filter((_e,li)=>(inversionHits.includes(li))).includes(li[lj]))comBlow++;
+					if(blow==comBlow)newNums.push(li);
 				}
 			}
 			targetNums=newNums;
