@@ -67,6 +67,7 @@ $("#online").click(()=>{
 		document.getElementById("btnMsg").textContent=e.target.value!=""?"始める":"部屋を作成";
 		document.getElementsByTagName("label")[0].style.display=e.target.value!=""?"none":"block";
 	});
+	document.getElementById("duplicate").addEventListener("change",e=>document.getElementById("noDuplicate").style.display=e.target.checked?"none":"inline");
 });
 $("#submit").click(()=>{
 	var currentMyNum=$("#myNum").val();
