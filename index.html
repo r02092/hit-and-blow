@@ -13,15 +13,51 @@
 	</head>
 	<body>
 		<div class="title"><!--タイトル画面 -->
-
-			<div class="title-center">
-			<h1>Hit&nbsp;&amp;&nbsp;Blow</h1>
-			<p>自分の答えの番号を<span id="len"></span>桁<span id="duplicate"></span>で入力してください</p>
-			<input type="text" id="myNum">
+			<div id="title-top">
+				<div class="title-center">
+					<h1>Hit&nbsp;&amp;&nbsp;Blow</h1>
+					<p>自分の答えの番号を重複無しで入力してください</p>
+					<input type="text" id="myNum">
+				</div>
 			</div>
-			<div class="wrapper">
-				<div class="button" id="start">
-					<i class="fas fa-play">始める</i>
+			<div id="title-top-button">
+				<div class="wrapper" style="top:5vh">
+					<div class="button" id="start">
+						<i class="fas fa-play">始める</i>
+					</div>
+				</div>
+				<div class="wrapper" style="top:15vh">
+					<div class="button" id="online">
+						<i class="fas fa-play">オンライン</i>
+					</div>
+				</div>
+			</div>
+			<div id="title-online" style="display:none">
+				<div class="title-center">
+					<h2>オンライン</h2>
+					<p>自分の名前</p>
+					<input type="text" id="myName">
+					<p>部屋ID(空欄で部屋を作成)</p>
+					<input type="text" id="roomId">
+					<label>
+						<input type="checkbox" id="duplicate">重複モード
+					</label>
+				</div>
+				<div class="wrapper" style="top:2vh">
+					<div class="button" id="submit">
+						<i class="fas fa-play" id="btnMsg">部屋を作成</i>
+					</div>
+				</div>
+			</div>
+			<div id="title-online-share" style="display:none">
+				<div class="title-center">
+					<h1>Hit&nbsp;&amp;&nbsp;Blow<br>
+					オンライン</h1>
+					部屋ID: <span id="roomIdDisplay" class="mono"></span><br>
+					または<br>
+					URL: <a id="roomIdLink" class="mono"></a><br>
+					を対戦相手に教えてください<br>
+					対戦相手が入室したらゲームが始まります
 				</div>
 			</div>
 		</div>

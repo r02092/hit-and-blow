@@ -129,7 +129,6 @@ div.log tr:first-child>td{
 }
 .wrapper{
 	position: relative;
-	top: 40px;
 }
 .button{
 	position: absolute;
@@ -156,4 +155,10 @@ div.title-center{
 	left: 50%;
 	transform: translateX(-50%);
 	width: 30%;
+}
+#duplicate{
+	width: auto;
+}
+.mono{
+	font-family: monospace;
 }
