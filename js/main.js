@@ -137,7 +137,7 @@ $("#submit").click(()=>{
 					secondXhr.send("act=waitStart&id="+$("#roomId").val()+firstXhr.responseText);
 				}
 			}
-			firstXhr.send("act=genPass"+sendData+"&duplicate="+duplicate);
+			firstXhr.send("act=genRoom"+sendData+"&duplicate="+duplicate);
 		}
 	}
 });
