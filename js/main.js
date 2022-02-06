@@ -90,7 +90,7 @@ $("#submit").click(()=>{
 		if($("#roomId").val()!=""){
 			firstXhr.onload=()=>{
 				if(firstXhr.status==200){
-					duplicate=firstXhr.responseText.charAt(0);
+					duplicate=Number(firstXhr.responseText.charAt(0));
 					if(isUsableNum(currentMyNum)){
 						if(typeof com==="undefined"){
 							playerId=0;
