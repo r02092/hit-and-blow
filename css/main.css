@@ -68,13 +68,12 @@ div.log tr:nth-child(odd)>td{
 div.log tr:first-child>td{
 	border: none;
 }
-#gauge{
-	background: green;
-	height: 90%;
+#memoClearBtn{
+	height: 100%;
+	width: 100%;
 }
-#gaugeInner{
-	background: gray;
-	height: 20%;
+#memoClearBtn>span{
+	writing-mode: vertical-rl;
 }
 #memo{
 	border: 1px solid black;

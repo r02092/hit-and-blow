@@ -40,7 +40,6 @@ $("#start").click(function(ev){
 		if(isUsableNum(currentMyNum)&&len>0){
 			playerName=["あなた","コンピュータ"];
 			com=true;
-			makeLogTable();
 			targetNums=genOpt(10,len,duplicate);
 			if(duplicate){
 				num[0]=(Array(len).join("0")+Math.floor(Math.random()*Math.pow(10,len))).slice(-len);
@@ -52,7 +51,7 @@ $("#start").click(function(ev){
 			//663
 			//
 			//do num[1]=prompt("自分の答えの数字:");while(!isUsableNum(num[1]));
-			startStopWatch();
+			prepareGame();
 			num[1] = currentMyNum;
 			playerId=0;
 			$(".title").fadeOut(500);
@@ -175,7 +174,6 @@ var memoClearBtn=document.getElementById("memoClearBtn");
 var memoContext=memo.getContext("2d");
 var memoFlg=true;
 var memoLast={x:null,y:null};
-memoResize();
 window.addEventListener("resize",memoResize);
 memoClearBtn.addEventListener("click",()=>memoContext.clearRect(0,0,memo.width,memo.height));
 memo.addEventListener("mousedown",memoDragStart);
@@ -188,7 +186,13 @@ memo.addEventListener("touchcancel",memoDragEnd);
 memo.addEventListener("touchmove",(e)=>{
 	for(var li of e.touches)memoDraw(li.clientX-memo.getBoundingClientRect().left,li.clientY-memo.getBoundingClientRect().top);
 });
-function makeLogTable(){ //ログの表を作る関数
+function genDigits(llen){ //0から数字を並べた配列を生成する関数
+	return Array.apply(null,new Array(llen)).map((a,i)=>{return i});
+}
+function isUsableNum(num){ //使用可能な数字であるかどうか判別する関数
+	return (!/(.).*\1/.test(num)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(num);
+}
+function prepareGame(){ //ゲームの準備をする関数
 	for(var li=0;li<2;li++){
 		var table=document.createElement("table");
 		var thead=document.createElement("thead");
@@ -203,14 +207,7 @@ function makeLogTable(){ //ログの表を作る関数
 		table.appendChild(tbody);
 		document.getElementsByClassName("log")[li].appendChild(table);
 	}
-}
-function genDigits(llen){ //0から数字を並べた配列を生成する関数
-	return Array.apply(null,new Array(llen)).map((a,i)=>{return i});
-}
-function isUsableNum(num){ //使用可能な数字であるかどうか判別する関数
-	return (!/(.).*\1/.test(num)||duplicate)&&new RegExp("^\\d{"+len+"}$").test(num);
-}
-function startStopWatch(){ //ストップウォッチを開始する関数
+	memoResize();
 	var sTime=Date.now();
 	interval=setInterval(()=>document.getElementById("time").textContent=new Date(Date.now()-sTime).toISOString().slice(11,19),1000);
 }
@@ -222,8 +219,7 @@ function startOnline(opponent){ //オンライン対戦の準備をする関数
 	num[1]=$("#myNum").val();
 	playerName=[$("#myName").val(),opponent];
 	com=false;
-	makeLogTable();
-	startStopWatch();
+	prepareGame();
 	$(".title").fadeOut(500);
 }
 async function wait(){ //オンライン対戦で相手を待つ関数
@@ -329,8 +325,8 @@ function endGame(){ //ゲーム終了後に実行される関数
 	document.getElementById("ans").setAttribute("disabled","");
 }
 function memoResize(){ //メモの大きさを調整する関数
-	memo.width=infoElem.clientWidth;
-	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-64;
+	memo.width=infoElem.clientWidth-2;
+	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-34;
 }
 function memoDraw(x,y){ //メモの描画を行う関数
 	if(memoFlg)return;
