@@ -134,7 +134,7 @@ $("#submit").click(()=>{
 							startOnline(secondXhr.responseText);
 						}
 					}
-					secondXhr.send("act=waitStart&id="+$("#roomId").val()+firstXhr.responseText);
+					secondXhr.send("act=waitStart&id="+firstXhr.responseText);
 				}
 			}
 			firstXhr.send("act=genRoom"+sendData+"&duplicate="+duplicate);
