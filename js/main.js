@@ -122,6 +122,7 @@ $("#submit").click(()=>{
 					document.getElementById("title-top").style.display="none";
 					document.getElementById("title-online").style.display="none";
 					document.getElementById("title-online-share").style.display="block";
+					document.getElementById("roomId").value=firstXhr.responseText;
 					document.getElementById("roomIdDisplay").textContent=firstXhr.responseText;
 					document.getElementById("roomIdLink").textContent="https://r02092.github.io/hit-and-blow/#"+firstXhr.responseText;
 					document.getElementById("roomIdLink").setAttribute("href","https://r02092.github.io/hit-and-blow/#"+firstXhr.responseText);
