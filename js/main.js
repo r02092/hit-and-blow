@@ -86,6 +86,7 @@ $("#submit").click(()=>{
 	if(len>0&&typeof com==="undefined"){
 		var firstXhr=new XMLHttpRequest();
 		firstXhr.open("POST",onlinePlayServer);
+		firstXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		var sendData="&num="+$("#myNum").val()+"&name="+$("#myName").val();
 		if($("#roomId").val()!=""){
 			firstXhr.onload=()=>{
@@ -126,6 +127,7 @@ $("#submit").click(()=>{
 					document.getElementById("roomIdLink").setAttribute("href","https://r02092.github.io/hit-and-blow/#"+firstXhr.responseText);
 					var secondXhr=new XMLHttpRequest();
 					secondXhr.open("POST",onlinePlayServer);
+					secondXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 					secondXhr.onload=()=>{
 						if(secondXhr.status!=200){
 							showError();
@@ -226,6 +228,7 @@ function startOnline(opponent){ //オンライン対戦の準備をする関数
 async function wait(){ //オンライン対戦で相手を待つ関数
 	var waitXhr=new XMLHttpRequest();
 	waitXhr.open("POST",onlinePlayServer);
+	waitXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	waitXhr.onload=()=>window.dispatchEvent(new Event("wait"));
 	waitXhr.send("act=wait&id="+$("#roomId").val()+"&player="+playerId);
 	waitFlg=true;
@@ -286,6 +289,7 @@ async function ansProcess(ans,player){ //解答を処理する関数
 	}else{
 		var judgeXhr=new XMLHttpRequest();
 		judgeXhr.open("POST",onlinePlayServer);
+		judgeXhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		judgeXhr.onload=()=>window.dispatchEvent(new Event("judge"));
 		judgeXhr.send("act=judge&id="+$("#roomId").val()+"&player="+playerId+"&ans="+ans);
 		await new Promise(r=>window.addEventListener("judge",r));
