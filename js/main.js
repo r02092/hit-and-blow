@@ -235,9 +235,9 @@ async function wait(){ //オンライン対戦で相手を待つ関数
 	waitFlg=true;
 	document.getElementById("ans").setAttribute("disabled","");
 	await new Promise(r=>window.addEventListener("wait",r));
+	document.getElementById("ans").removeAttribute("disabled");
 	await ansProcess(waitXhr.responseText,1);
 	waitFlg=false;
-	document.getElementById("ans").removeAttribute("disabled");
 }
 function showError(errId){ //エラーを表示する関数
 	switch(errId){
