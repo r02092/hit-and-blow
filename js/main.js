@@ -147,6 +147,7 @@ $("#submit").click(()=>{
 ansElem.addEventListener("input",async ()=>{
 	if(!waitFlg&&isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
+		ansElem.value="";
 		if(com){
 			comAns=targetNums.splice(Math.floor(Math.random()*targetNums.length),1)[0];
 			ansProcess(comAns.join(""),1);
@@ -169,7 +170,6 @@ ansElem.addEventListener("input",async ()=>{
 		}else{
 			await wait();
 		}
-		ansElem.value="";
 	}
 });
 var infoElem=document.getElementById("info");
@@ -233,9 +233,11 @@ async function wait(){ //オンライン対戦で相手を待つ関数
 	waitXhr.onload=()=>window.dispatchEvent(new Event("wait"));
 	waitXhr.send("act=wait&id="+$("#roomId").val()+"&player="+playerId);
 	waitFlg=true;
+	document.getElementById("ans").setAttribute("disabled","");
 	await new Promise(r=>window.addEventListener("wait",r));
 	await ansProcess(waitXhr.responseText,1);
 	waitFlg=false;
+	document.getElementById("ans").removeAttribute("disabled");
 }
 function showError(errId){ //エラーを表示する関数
 	switch(errId){
