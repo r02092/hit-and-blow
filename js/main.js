@@ -1,8 +1,3 @@
-if(location.hash!=""){
-	document.getElementById("roomInput").style.display="none";
-	document.getElementById("roomId").value=location.hash.slice(1);
-	document.getElementById("btnMsg").textContent="始める";
-}
 var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
@@ -144,6 +139,12 @@ $("#submit").click(()=>{
 		}
 	}
 });
+if(location.hash!=""){
+	document.getElementById("online").dispatchEvent(new Event("click"));
+	document.getElementById("roomInput").style.display="none";
+	document.getElementById("roomId").value=location.hash.slice(1);
+	document.getElementById("btnMsg").textContent="始める";
+}
 ansElem.addEventListener("input",async ()=>{
 	if(!waitFlg&&isUsableNum(ansElem.value)){
 		ansProcess(ansElem.value,0);
