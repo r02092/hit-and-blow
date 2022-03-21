@@ -98,7 +98,7 @@ $("#submit").click(()=>{
 						showError(false);
 					}
 				}else if(firstXhr.status==422){
-					alert("自分の答えの番号を"+firstXhr.responseText.slice(1)+"桁"+(firstXhr.responseText.charAt(0)?"":"重複無し")+"で入力してください");
+					alert("自分の答えの番号を"+firstXhr.responseText.slice(1)+"桁"+(firstXhr.responseText.charAt(0)-0?"":"重複無し")+"で入力してください");
 				}else{
 					showError();
 				}
