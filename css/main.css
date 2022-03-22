@@ -217,7 +217,7 @@ h4::after{
 h5{
 	margin: 0;
 }
-.rule>div>div{
+.content>div>div{
 	display: inline-block;
 	vertical-align: top;
 }
