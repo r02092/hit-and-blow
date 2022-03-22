@@ -12,6 +12,16 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 	</head>
 	<body>
+		<div id="descDialogBack"><!-- 説明ダイアログの背景 -->
+				<div id="descDialog"><!-- 説明ダイアログ -->
+					<div class="content">
+					<p>文字</p>
+					</div>
+					<div class="closeBtn">
+						<a href="javascript:void();" onclick="rule()" id="closeArea">閉じる</a>
+					</div>
+				</div>
+		</div>
 		<div class="title"><!--タイトル画面 -->
 			<div id="title-top">
 				<div class="title-center">
@@ -62,9 +72,9 @@
 					対戦相手が入室したらゲームが始まります
 				</div>
 			</div>
-			<div id="setsumei" style="top: 25vh;">
+			<div id="setsumei" style="top: 25vh;"><!--説明画面 クリックでモーダルOpen-->
 				<h1>Hit&Blowの説明</h1>
-				<p>数字を当てます。縦列で数字が合ったら、Hit(h)、自分の入れた数字のどれか一つが相手の数字の中にあったらBlow(b)となります。</p>
+				<p>数字を当てます。縦列で数字が合ったら、Hit(h)、自分の入れた数字のどれか一つが相手の数字の中にあったらBlow(b)となります。<a href="javascript:void(0);" onclick="rule()">詳しいルールを見る</a></p>
 			</div>
 		</div>
 		<div id="info" class="side">

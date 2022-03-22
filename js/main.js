@@ -1,4 +1,4 @@
-var memoBtn=document.getElementById("memoBtn");
+﻿var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 for(var i=0;i<2;i++){
 	var tr=document.createElement("tr");
@@ -364,4 +364,7 @@ function removeCharacter(position,str){
 	return str.slice(0, position) + str.slice(position + 1);
 }
 
-
+function rule(){
+	$("#descDialogBack").fadeToggle(500);
+	return false;
+}
