@@ -167,3 +167,36 @@ div.title-center{
 	transform: translateX(-50%);
 	width: 30%;
 }
+h3,
+h4{
+	display: flex;
+	align-items: center;
+}
+h3::before,
+h4::before{
+	margin-right: 1em;
+}
+h3::after,
+h4::after{
+	margin-left: 1em;
+}
+h3::before,
+h3::after{
+	content: "～";
+	flex-grow: 1;
+	text-align: center;
+}
+h4::before,
+h4::after{
+	content: '';
+	flex-grow: 1;
+	height: .1em;
+	background: black;
+}
+h5{
+	margin: 0;
+}
+.rule>div>div{
+	display: inline-block;
+	vertical-align: top;
+}
