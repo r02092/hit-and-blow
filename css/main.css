@@ -250,8 +250,8 @@ h5{
 	height: 80%;
 	width: 100%;
 }
-html::-webkit-scrollbar-thumb {
-   background-color: blue;
-   background-image: url("768.png");
-   border-radius: 5px;
+html::-webkit-scrollbar-thumb{
+	background-color: blue;
+	background-image: url("768.png");
+	border-radius: 5px;
 }
