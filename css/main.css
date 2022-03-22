@@ -13,12 +13,11 @@ div#descDialogBack{
 }
 div#descDialog{
 	position: fixed;
-	left: 30%;
+	left: 50%;
 	top: 40%;
-	transform: translateX(-50%);
-	transform: translateY(-40%);
-	height: 45%;
-	width: 30%;
+	transform: translate(-50%, -40%);
+	height: 50%;
+	width: 60%;
 	background: azure;
 	border-radius: 20px;
 }
@@ -216,6 +215,8 @@ div.title-center{
 	overflow: scroll;
 	height: 80%;
 	width: 100%;
+	margin: 10px;
+	margin-right: 20px;
 }
 html::-webkit-scrollbar-thumb {
    background-color: blue;
