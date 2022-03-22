@@ -1,6 +1,9 @@
 body{
 	font-family: 'Mochiy Pop P One', sans-serif;
 }
+h1,h2,h3,h4,h5{
+	font-weight: 400;
+}
 div#descDialogBack{
 	position: fixed;
 	display: none;
@@ -245,7 +248,7 @@ h5{
 	border-bottom: none;
 }
 .content{
-	overflow: scroll;
+	overflow: auto;
 	height: 80%;
 	width: 100%;
 	margin: 10px;
