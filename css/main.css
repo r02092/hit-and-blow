@@ -224,7 +224,7 @@ h5{
 	vertical-align: top;
 }
 #closeArea{
-	/*text-align: center;*/
+	text-align: center;
 	color: black;
 	display: block;
 	text-decoration: none;
@@ -235,8 +235,7 @@ h5{
 	padding-bottom: 7%;
 }
 .closeBtn{
-	position: relative;
-	left: 40%;
+	margin: auto;
 	width: 30%;
 	height: 15%;
 	background-color: gainsboro;
