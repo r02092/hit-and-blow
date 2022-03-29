@@ -1,4 +1,4 @@
-body{
+﻿body{
 	font-family: 'Mochiy Pop P One', sans-serif;
 }
 h1,h2,h3,h4,h5{
@@ -147,7 +147,8 @@ div.log tr:first-child>td{
 	right: 0;
 	width: 100%;
 	height: 100%;
-	background: gainsboro;
+	background-image: url("wood-texture.jpg");
+	background-color: olive;
 }
 .wrapper{
 	position: relative;
@@ -158,7 +159,7 @@ div.log tr:first-child>td{
 	transform: translateX(-50%);
 	background: skyblue;
 	border-radius: 20px;
-	box-shadow: 3px  3px 5px darkgray;
+	box-shadow: 3px  3px 5px darkkhaki;
 	padding: 20px 50px;
 	cursor: pointer;
 	transition: all 0.5s;
@@ -255,11 +256,25 @@ h5{
 	left: 5%;
 }
 .content::-webkit-scrollbar{
-	background-color: blue;
+	background-color: lightskyblue;
 	border-radius: 5px;
 }
 .content::-webkit-scrollbar-thumb{
 	background-color: gainsboro;
-	background-image: url("768.png");
+	background-image: url("768_2.jpg");
 	border-radius: 5px;
+}
+#questionaire{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30%;
+	top: 30%;
+	border-top: 6px solid cornflowerblue;
+	background: powderblue;
+}
+#kaitou{
+	position: relative;
+	left: 50%;
+	transform: translateX(-20%);
 }
