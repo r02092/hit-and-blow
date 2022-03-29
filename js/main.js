@@ -58,6 +58,7 @@ $("#start").click(function(ev){
 $("#online").click(()=>{
 	document.getElementById("title-top-button").style.display="none";
 	$("#setsumei").fadeOut(500);
+	$("#questionaire").fadeOut(500);
 	document.getElementById("title-online").style.display="block";
 	document.getElementById("roomId").addEventListener("input",e=>{
 		document.getElementById("btnMsg").textContent=e.target.value!=""?"始める":"部屋を作成";

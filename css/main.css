@@ -278,3 +278,10 @@ h5{
 	left: 50%;
 	transform: translateX(-20%);
 }
+#credit{
+	position: fixed;
+	font-family: "Poppins", sans-serif;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
