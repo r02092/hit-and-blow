@@ -99,6 +99,9 @@ div.log tr:first-child>td{
 	writing-mode: vertical-rl;
 }
 #memo{
+	background: url("p0096_l.png");
+	background-position: center;
+	background-size: cover;
 	border: 1px solid black;
 }
 #ans{
@@ -283,4 +286,7 @@ h5{
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
+}
+#memoBg{
+	background: url("768.png");
 }
