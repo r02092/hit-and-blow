@@ -196,6 +196,7 @@ div.title-center{
 	left: 50%;
 	transform: translateX(-50%);
 	width: 30%;
+	padding-bottom: 8%;
 }
 h3,
 h4{
@@ -274,7 +275,6 @@ h5{
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 30%;
 	top: 30%;
 	border-top: 6px solid cornflowerblue;
 	background: powderblue;
