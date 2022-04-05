@@ -1,4 +1,4 @@
-﻿body{
+body{
 	font-family: 'Mochiy Pop P One', sans-serif;
 }
 h1,h2,h3,h4,h5{
@@ -149,6 +149,7 @@ div.log tr:first-child>td{
 	height: 100%;
 	background-image: url("wood-texture.jpg");
 	background-color: olive;
+	background-size: cover;
 }
 .wrapper{
 	position: relative;
@@ -274,9 +275,7 @@ h5{
 	background: powderblue;
 }
 #kaitou{
-	position: relative;
-	left: 50%;
-	transform: translateX(-20%);
+	text-align: center;
 }
 #credit{
 	position: fixed;
