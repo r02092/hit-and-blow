@@ -102,7 +102,7 @@ div.log tr:first-child>td{
 	background: url("p0096_l.png");
 	background-position: center;
 	background-size: cover;
-	border: 1px solid black;
+	vertical-align: bottom;
 }
 #ans{
 	font-size: 16px;
@@ -153,6 +153,8 @@ div.log tr:first-child>td{
 	background-image: url("wood-texture.jpg");
 	background-color: olive;
 	background-size: cover;
+	overflow: auto;
+	border-bottom: 1px;
 }
 .wrapper{
 	position: relative;

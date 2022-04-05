@@ -337,8 +337,8 @@ function endGame(){ //ゲーム終了後に実行される関数
 	document.getElementById("ans").setAttribute("disabled","");
 }
 function memoResize(){ //メモの大きさを調整する関数
-	memo.width=infoElem.clientWidth-2;
-	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-34;
+	memo.width=infoElem.clientWidth;
+	memo.height=window.innerHeight-infoElem.clientHeight-ansElem.clientHeight-27;
 }
 function memoDraw(x,y){ //メモの描画を行う関数
 	if(memoFlg)return;
