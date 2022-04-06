@@ -1,4 +1,4 @@
-﻿var memoBtn=document.getElementById("memoBtn");
+var memoBtn=document.getElementById("memoBtn");
 var memoBtnData=new Array(10).fill(0);
 document.getElementById("y").textContent = new Date().getFullYear();
 for(var i=0;i<2;i++){
