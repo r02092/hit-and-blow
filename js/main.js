@@ -201,7 +201,7 @@ memo.addEventListener("touchmove",(e)=>{
 	for(var li of e.touches)memoDraw(li.clientX-memo.getBoundingClientRect().left,li.clientY-memo.getBoundingClientRect().top);
 });
 function logoAnimation(){ //タイトルロゴを動かす関数
-	logo.src="../logo.svg?"+new Date().getTime();
+	logo.src="logo.svg?"+new Date().getTime();
 }
 function genDigits(llen){ //0から数字を並べた配列を生成する関数
 	return Array.apply(null,new Array(llen)).map((a,i)=>{return i});
