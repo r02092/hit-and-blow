@@ -185,6 +185,11 @@ div.title-center{
 	transform: translateX(-50%);
 	width: 30%;
 }
+#logo {
+	display: block;
+	margin: 0 auto 0;
+	visibility: hidden;
+}
 #duplicate{
 	width: auto;
 }
